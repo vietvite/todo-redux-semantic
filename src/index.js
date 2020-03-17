@@ -7,6 +7,8 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 import rootReducers from './redux'
 
+import 'semantic-ui-css/semantic.min.css'
+
 const store = createStore(rootReducers)
 ReactDOM.render(
   <Provider store={store}>

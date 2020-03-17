@@ -1,19 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Button } from 'semantic-ui-react'
 
 function Link (props) {
   // TODO: Where children from???
   const { active, onclick, children } = props
-  // console.log({ props })
 
   return active
-    ? (<span>{'asd' + children}</span>)
-    : (<button
+    ? (<Button positive>{children}</Button>)
+    : (<Button
       onClick={e => {
         e.preventDefault()
         onclick()
       }}
-    >{children}</button>)
+    >{children}</Button>)
 }
 
 Link.propTypes = {

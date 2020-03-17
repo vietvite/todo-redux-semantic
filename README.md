@@ -2,6 +2,6 @@
 A small todo app using react, redux and semantic ui
 
 # Todos:
-[ ] Impl redux
-[ ] Impl semantic ui
+[x] Impl redux
+[x] Impl semantic ui
 [ ] Search todos (fuzzy and match)

@@ -4,7 +4,7 @@ import { setVisibility } from '../redux/actions'
 
 function mapStateToProp (state, ownState) {
   return {
-    active: state.visibilityFilter === ownState.visibilityFilter
+    active: state.visibilityFilter === ownState.filter
   }
 }
 function mapDisPatchToProp (dispatch, { filter }) {

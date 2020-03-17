@@ -1,11 +1,15 @@
 import React from 'react'
 import Proptype from 'prop-types'
+import { Checkbox, List } from 'semantic-ui-react'
 
 function Todo ({ text, completed, onclick }) {
   return (
-    <li onClick={onclick}
-    // TODO: can we write style={ !completed && () => ({textDecoration: 'none'}) } =))
-      style={{ textDecoration: !completed ? 'none' : 'line-through' }}>{text}</li>
+    <List.Item>
+      <Checkbox checked={completed} onDoubleClick={onclick} label={(
+        <label style={{ textDecoration: !completed ? 'none' : 'line-through' }}>
+          {text}</label>
+      )}/>
+    </List.Item>
   )
 }
 Todo.propTypes = {

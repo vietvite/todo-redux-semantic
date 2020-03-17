@@ -1,15 +1,15 @@
 import React from 'react'
 import Todo from './Todo'
 import Proptype from 'prop-types'
+import { List } from 'semantic-ui-react'
 
 function TodoList ({ todos, toggleTodo }) {
   return (
-    <ul>
+    <List>
       { todos.map(todo => (
-        // TODO: check whether `onclick={toggleTodo(id)}` is work, if it works so why it pass a callback
         <Todo key={todo.id} {...todo} onclick={() => toggleTodo(todo.id)}></Todo>
       ))}
-    </ul>
+    </List>
   )
 }
 TodoList.propTypes = {
