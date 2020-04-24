@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, EDIT_TODO, DELETE_TODO } from '../constants'
+import { ADD_TODO, TOGGLE_TODO, EDIT_TODO, DELETE_TODO, DELETE_ALL_COMPLETED_TODO } from '../constants'
 import { isDuplidateTodo } from '../../commons'
 
 export default (state = [], action) => {
@@ -26,6 +26,8 @@ export default (state = [], action) => {
       } : todo))
     case DELETE_TODO:
       return state.filter(todo => todo.id !== action.id)
+    case DELETE_ALL_COMPLETED_TODO:
+      return state.filter(todo => todo.completed === false)
 
     default:
       return state

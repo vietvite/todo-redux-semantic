@@ -1,7 +1,7 @@
 import { generate as genId } from 'shortid'
 
 import {
-  ADD_TODO, TOGGLE_TODO, SET_VISIBILITY, SHOW_ACTIVE, SHOW_COMPLETED, SHOW_ALL, EDIT_TODO, DELETE_TODO
+  ADD_TODO, TOGGLE_TODO, SET_VISIBILITY, SHOW_ACTIVE, SHOW_COMPLETED, SHOW_ALL, EDIT_TODO, DELETE_TODO, DELETE_ALL_COMPLETED_TODO
 } from '../constants'
 
 export const addTodo = (text) => ({
@@ -35,4 +35,8 @@ export const editTodo = (id, text) => ({
 export const deleteTodo = (id) => ({
   type: DELETE_TODO,
   id
+})
+
+export const deleteAllCompletedTodo = () => ({
+  type: DELETE_ALL_COMPLETED_TODO
 })
