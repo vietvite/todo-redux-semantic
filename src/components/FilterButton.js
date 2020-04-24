@@ -12,8 +12,7 @@ function Link (props) {
       onClick={e => {
         e.preventDefault()
         onclick()
-      }}
-    >{children}</Button>)
+      }}>{children}</Button>)
 }
 
 Link.propTypes = {

@@ -2,7 +2,7 @@
 import React from 'react'
 import { addTodo } from '../redux/actions'
 import { connect } from 'react-redux'
-import { Form, Button, Input } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 
 // Refactor AddTodo to seperate component file
 const AddTodo = ({ dispatch }) => {
