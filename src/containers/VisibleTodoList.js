@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
-import TodoList from '../components/TodoList'
-import { visibilityFilters, toggleTodo } from '../redux/actions'
+import TodoList from '../components/TodoList/TodoList'
+import { visibilityFilters, toggleTodo, editTodo, deleteTodo } from '../redux/actions'
 
-function visibleTodoList (todos, filter) {
+function visibleTodoList(todos, filter) {
   switch (filter) {
     case visibilityFilters.SHOW_ALL:
       return todos
@@ -11,25 +11,18 @@ function visibleTodoList (todos, filter) {
     case visibilityFilters.SHOW_COMPLETED:
       return todos.filter(todo => todo.completed)
     default:
-      // TODO: is this throw error necessary? && For what case?
       throw new Error(`Unknow filter ${filter}`)
   }
 }
 
-const mapStateToProp = state => {
-  const todos = visibleTodoList(state.todos, state.visibilityFilter)
-  return {
-    todos: matchSearch(todos, state.searchKeyword)
-  }
-}
-const mapDisPatchToProp = dispatch => ({
-  toggleTodo: id => dispatch(toggleTodo(id))
+const mapStateToProp = state => ({
+  todos: visibleTodoList(state.todos, state.visibilityFilter)
 })
 
-function matchSearch (todos, keyword) {
-  return todos.filter(
-    sentence => sentence.text.toLowerCase().match(keyword.toLowerCase())
-  )
-}
+const mapDisPatchToProp = dispatch => ({
+  toggleTodo: id => dispatch(toggleTodo(id)),
+  editTodo: (id, text) => dispatch(editTodo(id, text)),
+  deleteTodo: id => dispatch(deleteTodo(id))
+})
 
 export default connect(mapStateToProp, mapDisPatchToProp)(TodoList)

@@ -1,7 +1,7 @@
 import { generate as genId } from 'shortid'
 
 import {
-  ADD_TODO, TOGGLE_TODO, SET_VISIBILITY, SHOW_ACTIVE, SHOW_COMPLETED, SHOW_ALL, SEARCH_TODO
+  ADD_TODO, TOGGLE_TODO, SET_VISIBILITY, SHOW_ACTIVE, SHOW_COMPLETED, SHOW_ALL, EDIT_TODO, DELETE_TODO
 } from '../constants'
 
 export const addTodo = (text) => ({
@@ -26,7 +26,13 @@ export const visibilityFilters = {
   SHOW_ACTIVE
 }
 
-export const searchTodo = (keyword) => ({
-  type: SEARCH_TODO,
-  keyword
+export const editTodo = (id, text) => ({
+  type: EDIT_TODO,
+  id,
+  text
+})
+
+export const deleteTodo = (id) => ({
+  type: DELETE_TODO,
+  id
 })
