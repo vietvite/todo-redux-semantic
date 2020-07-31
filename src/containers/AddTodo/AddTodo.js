@@ -24,9 +24,9 @@ class AddTodo extends React.Component {
     const JUST_TEXT_REGEX = /^[a-zA-Z ]*$/
 
     const text = this.state.text.trim()
-    if (!JUST_TEXT_REGEX.test(text)) {
-      return
-    }
+    // if (!JUST_TEXT_REGEX.test(text)) {
+    //   return
+    // }
     text && this.props.addTodo(text)
     this.setState({
       text: ''
